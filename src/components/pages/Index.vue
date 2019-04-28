@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <Header/>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -31,8 +32,13 @@
 </template>
 
 <script>
+import Header from '../modules/Header.vue'
+
 export default {
   name: 'HelloWorld',
+  components: {
+    Header
+  },
   props: {
     msg: String
   }
