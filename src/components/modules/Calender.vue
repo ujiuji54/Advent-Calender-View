@@ -7,7 +7,11 @@
           <th v-for="date in weekList" :key="date">{{ date }}</th>
         </tr>
         <tr v-for="week in calenderData" :key="week">
-          <td v-for="day in week" :key="day">{{ day }}</td>
+          <td v-for="day in week" :key="day">
+            {{ day }}
+            <br> title
+            <br> pagelink
+          </td>
         </tr>
       </table>
     </p>
