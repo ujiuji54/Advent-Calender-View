@@ -15,28 +15,39 @@
         </tr>
       </table>
     </p>
+    {{ info }}
   </div>
 </template>
 
 <script>
 import moment from 'moment'
+import axios from 'axios'
 
 export default {
   name: 'Calender',
-  data() {
+  data () {
     return {
       current: 0,
-      weekList: ['日', '月', '火', '水', '木', '金', '土']
+      weekList: ['日', '月', '火', '水', '木', '金', '土'],
+      info: null
     }
   },
+  mounted () {
+    axios
+      .get('localhost:3000/api/blogs?month=0', {
+        headers: {},
+        data: {}
+      })
+      .then(response => (this.info = response))
+  },
   computed: {
-    currentMoment() {
+    currentMoment () {
       return moment().add(this.current, 'months')
     },
-    yearMonth() {
+    yearMonth () {
       return this.currentMoment.format('YYYY MM')
     },
-    calenderData() {
+    calenderData () {
       // この月に何日まであるかを算出
       const numOfMonth = this.currentMoment.endOf('month').date()
       // この月の1日〜最終日までの配列
