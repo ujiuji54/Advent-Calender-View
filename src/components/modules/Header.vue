@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <img alt="Vue logo" src="../../assets/logo.png">
-    <h2> Header </h2>
+    <h2> Advent Calender </h2>
   </div>
 </template>
 
