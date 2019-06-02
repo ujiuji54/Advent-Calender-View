@@ -15,7 +15,7 @@
         </tr>
       </table>
     </p>
-    {{ info }}
+    {{ info.data }}
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
   },
   mounted () {
     axios
-      .get('localhost:3000/api/blogs?month=0', {
+      .get('http://localhost:3000/api/blogs?month=0', {
         headers: {},
         data: {}
       })
