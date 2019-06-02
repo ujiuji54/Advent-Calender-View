@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Header from '../modules/Header.vue'
-import Calender from '../modules/Calender.vue'
+import Header from '@/components/modules/Header.vue'
+import Calender from '@/components/modules/Calender.vue'
 
 export default {
   name: 'Index',

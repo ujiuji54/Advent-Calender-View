@@ -8,9 +8,11 @@
         </tr>
         <tr v-for="week in calenderData" :key="week">
           <td v-for="day in week" :key="day">
-            {{ day }}
-            <br> title
-            <br> pagelink
+            <DateCard
+              v-bind:day=day
+              title="title"
+              pagelink="pagelink"
+            ></DateCard>
           </td>
         </tr>
       </table>
@@ -23,8 +25,13 @@
 import moment from 'moment'
 import axios from 'axios'
 
+import DateCard from '@/components/modules/DateCard.vue'
+
 export default {
   name: 'Calender',
+  components: {
+    DateCard
+  },
   data () {
     return {
       current: 0,
@@ -38,7 +45,7 @@ export default {
         headers: {},
         data: {}
       })
-      .then(response => (this.info = response))
+      .then(response => (this.info = response.data))
   },
   computed: {
     currentMoment () {
