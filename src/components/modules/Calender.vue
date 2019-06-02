@@ -15,7 +15,7 @@
         </tr>
       </table>
     </p>
-    {{ info.data }}
+    {{ info }}
   </div>
 </template>
 
