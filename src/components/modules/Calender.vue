@@ -2,6 +2,8 @@
   <div class="calender">
     <h3>{{ yearMonth }}</h3>
     <p>
+      <button v-on:click="current -= 1"></button>
+      <button v-on:click="current += 1"></button>
       <table>
         <tr>
           <th v-for="date in weekList" :key="date">{{ date }}</th>
@@ -41,11 +43,16 @@ export default {
   },
   mounted () {
     axios
-      .get('http://localhost:3000/api/blogs?month=0', {
+      .get('http://localhost:3000/api/blogs', {
+        params: {
+          month: this.current
+        },
         headers: {},
         data: {}
       })
       .then(response => (this.info = response.data))
+    // TODO this.getBlogs 呼ばれない
+    this.getBlogs
   },
   computed: {
     currentMoment () {
@@ -73,6 +80,24 @@ export default {
       )
       // 全てnullの配列があれば除去する
       return data.filter(week => week.filter(day => day != null).length > 0)
+    }
+  },
+  watch: {
+    current () {
+      this.getBlogs()
+    }
+  },
+  methods: {
+    getBlogs () {
+      axios
+        .get('http://localhost:3000/api/blogs', {
+          params: {
+            month: this.current
+          },
+          headers: {},
+          data: {}
+        })
+        .then(response => (this.info = response.data))
     }
   }
 }
