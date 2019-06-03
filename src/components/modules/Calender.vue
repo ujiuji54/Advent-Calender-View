@@ -2,8 +2,8 @@
   <div class="calender">
     <h3>{{ yearMonth }}</h3>
     <p>
-      <button v-on:click="current -= 1"></button>
-      <button v-on:click="current += 1"></button>
+      <md-button class="md-raised md-primary" v-on:click="current -= 1"></md-button>
+      <md-button class="md-raised md-primary" v-on:click="current += 1"></md-button>
       <table>
         <tr>
           <th v-for="date in weekList" :key="date">{{ date }}</th>
