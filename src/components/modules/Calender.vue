@@ -102,3 +102,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.calender p table {
+  margin: auto;
+}
+
+table td,th{
+  padding:10px 20px;
+}
+
+</style>

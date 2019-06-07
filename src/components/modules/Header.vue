@@ -1,10 +1,8 @@
 <template>
   <div class="header">
-    <h2> Advent Calender </h2>
-    <ul class="main_menu">
-      <li><a href="">サインアップ</a></li>
-      <li><a href="">ログイン</a></li>
-    </ul>
+    <h1> Advent Calender </h1>
+      <md-button class="md-raised md-primary signup">サインアップ</md-button>
+      <md-button class="md-raised md-primary login">ログイン</md-button>
   </div>
 </template>
 
@@ -17,21 +15,15 @@ export default {
 <style scoped>
 
 .header {
-  background-color: skyblue;
   display: flex;
   align-items: center;
   justify-content:space-around;
+  background-color: mediumblue;
 }
 
-.main_menu {
-  list-style: none;
-  width:50%;
-  display: flex;
-  justify-content: space-around;
+.header h1 {
+  margin-right: 40%;
+  color:white;
 }
 
-.main_menu li a {
-	text-decoration: none;
-	color: black;
-}
 </style>
