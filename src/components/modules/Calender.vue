@@ -12,8 +12,7 @@
           <td v-for="day in week" :key="day">
             <DateCard
               v-bind:day=day
-              title="title"
-              pagelink="pagelink"
+              v-bind:blog=setBlog(day)
             ></DateCard>
           </td>
         </tr>
@@ -98,6 +97,19 @@ export default {
           data: {}
         })
         .then(response => (this.info = response.data))
+    },
+    setBlog (day) {
+      if (this.info.filter(blog => blog['date'] == day)[0]) {
+        return this.info.filter(blog => blog['date'] == day)[0]
+      }
+      else {
+        return {
+          'title': null,
+          'user': {
+            'name': null
+          }
+        }
+      }
     }
   }
 }
